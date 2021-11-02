@@ -1,0 +1,78 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+javafx.application.Application <|-- Applications
+
+class FXMLDocumentController implements Initializable
+
+class Applications{
+
+ + start(Stage primaryStage): void
+ + {static} main(String[] args): void
+
+}
+
+class FXMLDocumentController
+{
+    -Label: label
+    -Text: actiontarget
+    -tableView:<ToDoList>
+    - Descriptionc: TableColumn<ToDoList, String>
+    - duedatec: TableColumn<ToDoList, String>
+    -completedc: <ToDoList, CheckBox>
+    -Todolistview: TableView<ToDoList>
+    - text: TextField
+
+
+     - handleSubmitButtonAction(ActionEvent event): void
+     + initialize(URL url, ResourceBundle rb) void
+     + handleAboutAction(ActionEvent actionEvent): void
+     + handleKeyInput(KeyEvent keyEvent) : void
+     + handlenewfileButtonAction(ActionEvent actionEvent): void
+     + handleNewF(ActionEvent actionEvent): void
+     + handleDeleteL(ActionEvent actionEvent): void
+     + handleSaveas(ActionEvent actionEvent): void
+     + handleNewI(ActionEvent actionEvent): void
+     + handleDeleteI(ActionEvent actionEvent) : void
+     + handleEditI(ActionEvent actionEvent) : void
+     + handlecheckbox(ActionEvent actionEvent) : void
+     + handleExistingL(ActionEvent actionEvent): void
+     + handleSave(ActionEvent actionEvent) : void
+     + handleExit(ActionEvent actionEvent): void
+     + showCompletedTasks(ActionEvent completeTasksButtonPressed): void
+     + handleSaveAll(ActionEvent actionEvent) : void
+     + handleExistingEL(ActionEvent actionEvent)  void
+     + showLists(ActionEvent actionEvent) : void
+
+}
+
+class Item
+{
+ -  Title :SimpleStringProperty
+ - Description: SimpleStringProperty
+ - Duedate: SimpleStringProperty
+ - completedc: CheckBox
+
+ + Item()
+ + Item(String Title, String Description, String Duedate)
++ getTitle(): String
++ setTitle: void
++ getDescription() :String
++setDescription(String D): void
++getDuedate(): String
++setDuedate: void
+}
+
+class ToDoList
+{
+- Name: SimpleStringProperty
+-listTasks : ArrayList<>()
+
++ TodoList()
++TodoList(String NameofList)
++ getName() : String
++setName(String n): void
++OutputS(List<ToDoList> Lists): String
+}
+
+@enduml
