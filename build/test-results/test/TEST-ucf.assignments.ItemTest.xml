@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ucf.assignments.ItemTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-11-16T04:39:03" hostname="DESKTOP-5LM9RUK" time="0.022">
+  <properties/>
+  <testcase name="setDescription()" classname="ucf.assignments.ItemTest" time="0.019"/>
+  <testcase name="setDuedate()" classname="ucf.assignments.ItemTest" time="0.0"/>
+  <testcase name="setComplete()" classname="ucf.assignments.ItemTest" time="0.001"/>
+  <testcase name="setTitle()" classname="ucf.assignments.ItemTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
