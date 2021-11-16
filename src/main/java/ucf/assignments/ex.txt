@@ -1,0 +1,5 @@
+cookies,publix,1944-09-08, C
+oreos,publix,1944-09-08, I
+coke,publix,1944-09-08, I
+muffin,publix,1944-09-08, I
+

@@ -15,6 +15,9 @@ javafx {
 
 }
 
+test {
+    useJUnitPlatform()
+}
 mainClassName = 'ucf.assignments.Applications'
 
 dependencies {

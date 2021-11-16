@@ -5,38 +5,47 @@ package ucf.assignments;
  */
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 
 //creates new item in to do list array
 
 public class Item {
 
-    /*
-   private final SimpleStringProperty Title = new SimpleStringProperty("");
-   private final SimpleStringProperty Description = new SimpleStringProperty("");
-    private final SimpleStringProperty Duedate= new SimpleStringProperty("");
-    final String[] Completed= new String[]{"Completed"};
-    final CheckBox[] cbs = new CheckBox[Completed.length];
+
+    private final SimpleStringProperty Title = new SimpleStringProperty("");
+    private final SimpleStringProperty Description = new SimpleStringProperty("");
+    private final SimpleStringProperty Duedate = new SimpleStringProperty("");
+    private final SimpleStringProperty Complete = new SimpleStringProperty("");
+
+
 
 
     public Item() {
-        this("", "", "");
+        this("", "", "","");
     }
 
-    public Item(String Title, String Description, String Duedate) {
+    public Item(String Title, String Description, String Duedate, String Complete) {
         setTitle(Title);
-      setDescription(Description);
+        setDescription(Description);
         setDuedate(Duedate);
+        setComplete(Complete);
     }
 
     public String getTitle() {
-
-       return Title.get();
+        return Title.get();
     }
 
-   public void setTitle(String t) {
-
+    public void setTitle(String t) {
         Title.set(t);
+    }
+
+    public String getComplete() {
+        return Complete.get();
+    }
+
+    public void setComplete(String c) {
+        Complete.set(c);
     }
 
     public String getDescription() {
@@ -44,23 +53,19 @@ public class Item {
     }
 
     public void setDescription(String D) {
-
         Description.set(D);
     }
 
-   public  String getDuedate() {
+    public String getDuedate() {
+        return Duedate.get();
+    }
 
-       return Duedate.get();
-   }
-
-  public void setDuedate(String DD) {
-
-       Duedate.set(DD);
+    public void setDuedate(String DD) {
+        Duedate.set(DD);
     }
 
 
 
-     */
 
 }
 

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -11,227 +9,120 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" hgap="10" prefHeight="621.0" prefWidth="747.0" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.FXMLDocumentController">
-
-
-    <padding>
-        <Insets bottom="25" left="25" right="25" top="25" />
-    </padding>
-
-    <Text text="Add Item: " GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="23">
-        <font>
-            <Font name="Arial" size="18.0" />
-        </font></Text>
-
-    <Label text="Item: " GridPane.columnIndex="9" GridPane.rowIndex="24" />
-
-    <Label text="Description: " GridPane.columnIndex="9" GridPane.rowIndex="25" />
-
-    <Label text="Due Date(YYYY-MM-DD):" GridPane.columnIndex="9" GridPane.rowIndex="26" />
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="10" GridPane.rowIndex="27" />
-
-    <Text text="New List" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="23">
-        <font>
-            <Font name="Arial" size="18.0" />
-        </font></Text>
-    <Label text="Name: " GridPane.columnIndex="2" GridPane.rowIndex="24" />
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="26" />
+<GridPane alignment="CENTER" hgap="10" prefHeight="622.0" prefWidth="747.0" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.FXMLDocumentController">
 
 
 
-    <Label style="-fx-font: NORMAL 20 Tahoma;" text="Todo List 1" textFill="#4345d1" GridPane.columnIndex="9" GridPane.rowIndex="16">
+
+
+    <Label prefHeight="53.0" prefWidth="96.0" style="-fx-font: NORMAL 20 Tahoma;" text="To Do List " textFill="#4345d1" GridPane.columnIndex="9" GridPane.rowIndex="14">
       <font>
-         <Font name="Blackadder ITC" size="12.0" />
+         <Font name="Rockwell Extra Bold" size="12.0" />
       </font></Label>
-    <TableView fx:id="tableView" prefHeight="134.0" prefWidth="381.0" GridPane.columnIndex="9" GridPane.rowIndex="19">
+    <TableView fx:id="tableView" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="664.0" GridPane.columnIndex="9" GridPane.rowIndex="21">
         <columns>
-            <TableColumn text="Item">
-                <cellValueFactory><PropertyValueFactory property="title" />
-                </cellValueFactory>
+            <TableColumn fx:id="colItem" onEditCommit="#onEditchanged" prefWidth="58.400022864341736" text="Item">
             </TableColumn>
-            <TableColumn fx:id="Descriptionc" prefWidth="114.39993286132812" text="Description">
-                <cellValueFactory><PropertyValueFactory property="description" />
-                </cellValueFactory>
+            <TableColumn fx:id="colDes" onEditCommit="#onEditchanged" prefWidth="171.99998474121094" text="Description">
             </TableColumn>
-            <TableColumn fx:id="duedatec"  minWidth="6.4000244140625" prefWidth="70.4000244140625" text="Due Date">
-                <cellValueFactory><PropertyValueFactory property="duedate" />
-                </cellValueFactory>
+            <TableColumn fx:id="colDD" onEditCommit="#onEditchanged" prefWidth="164.0" text="Due Date">
             </TableColumn>
-            <TableColumn fx:id="completedc" prefWidth="128.0" text="Completed">
-                <cellValueFactory><PropertyValueFactory property="completed" />
-                </cellValueFactory>
+            <TableColumn fx:id="colCompleted" onEditCommit="#onEditchanged" prefWidth="71.2000732421875" text="Complete">
             </TableColumn>
         </columns>
+        <sortOrder>
+            <fx:reference source="colDD" />
+        </sortOrder>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy>
     </TableView>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="9" GridPane.rowIndex="24">
+        <TextField fx:id="ItemField" prefHeight="26.0" prefWidth="224.0" promptText="Item" />
+        <TextField fx:id="DescriptionField" prefHeight="26.0" prefWidth="279.0" promptText="Description" />
+        <TextField fx:id="DuedateField" prefWidth="150" promptText="YYYY-MM-DD" />
+    </HBox>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="24" />
 
 
-    <Label style="-fx-font: NORMAL 20 Tahoma;" text="All Lists" GridPane.columnIndex="2" GridPane.rowIndex="16">
-      <font>
-         <Font name="Arial Bold Italic" size="23.0" />
-      </font></Label>
-    <TableView fx:id="Todolistview" prefHeight="86.0" prefWidth="300.0" GridPane.columnIndex="2" GridPane.rowIndex="19">
-        <columns>
-            <TableColumn fx:id="text" text="Name of List">
-                <cellValueFactory><PropertyValueFactory property="Name" />
-                </cellValueFactory>
-            </TableColumn>
-        </columns>
-
-    </TableView>
 
 
-    <MenuBar fx:id="menuBar" onKeyPressed="#handleKeyInput" prefHeight="26.0" prefWidth="172.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+    <MenuBar fx:id="menuBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="142.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
         <menus>
             <Menu text="File">
-                <items>
-                    <MenuItem onAction="#handleNewF" text="New List" />
-                    <MenuItem onAction="#handleExistingL" text="Open Existing List" />
+
                     <MenuItem onAction="#handleExistingEL" text="Open Existing External List" />
-                    <MenuItem onAction="#handleDeleteL" text="Delete" />
+
                     <MenuItem onAction="#handleSave" text="Save" />
-                    <MenuItem onAction="#handleSaveas" text="Save As" />
-                    <MenuItem onAction="#handleSaveAll" text="Save All" />
+
+
 
                     <SeparatorMenuItem />
                     <MenuItem onAction="#handleExit" text="Exit" />
-                </items>
-            </Menu>
-            <Menu text="Items">
-                <items>
-
-                    <MenuItem onAction="#handleEditI" text="Edit Item" />
-                    <MenuItem onAction="#handleNewI" text="New Item" />
-                    <MenuItem onAction="#handleDeleteI" text="Delete Iem" />
-
-                </items>
             </Menu>
             <Menu text="Help">
-                <items>
-                    <MenuItem disable="true" text="Search" />
+
+
                     <MenuItem text="Online Manual" visible="false" />
                     <SeparatorMenuItem />
                     <MenuItem onAction="#handleAboutAction" text="About" />
-                </items>
+
             </Menu>
         </menus>
     </MenuBar>
-   <GridPane prefHeight="69.0" prefWidth="218.0" GridPane.columnIndex="2" GridPane.rowIndex="24">
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.199951171875" minWidth="10.0" prefWidth="73.600048828125" />
-       <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.199951171875" minWidth="10.0" prefWidth="227.199951171875" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-      <children>
-          <TextField prefHeight="26.0" prefWidth="165.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      </children>
-   </GridPane>
-     <Button onAction="#handlenewfileButtonAction" text="Save" GridPane.columnIndex="2" GridPane.rowIndex="25" />
-   <GridPane GridPane.columnIndex="9" GridPane.rowIndex="24">
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-      <children>
-          <TextField prefHeight="26.0" prefWidth="95.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      </children>
-   </GridPane>
-   <GridPane prefHeight="44.0" prefWidth="300.0" GridPane.columnIndex="9" GridPane.rowIndex="25">
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-      <children>
-          <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      </children>
-   </GridPane>
-   <GridPane GridPane.columnIndex="9" GridPane.rowIndex="26">
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-      <children>
-          <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      </children>
-   </GridPane>
-     <Button onAction="#handleSubmitButtonAction" text="Save" GridPane.columnIndex="9" GridPane.rowIndex="27" />
-   <CheckBox onAction="#handlecheckbox" text="Completed" translateX="250.0" GridPane.columnIndex="9" GridPane.rowIndex="27" />
-   <TextField onAction= "#showCompletedTasks" text="Search Item:" GridPane.columnIndex="9" GridPane.rowIndex="12" />
-   <TextField onAction= "#showLists" text="Search Lists:" GridPane.columnIndex="2" GridPane.rowIndex="12" />
 
-
-    <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-    </padding>
+     <Button onAction="#addItem" text="Add" GridPane.columnIndex="9" GridPane.rowIndex="27" />
+     <Button mnemonicParsing="false" onAction="#removeItem" text="Remove" translateX="50.0" GridPane.columnIndex="9" GridPane.rowIndex="27" />
+   <Button mnemonicParsing="false" onAction="#clearbutton" text="Clear" translateX="120.0" GridPane.columnIndex="9" GridPane.rowIndex="27" />
+   <TextField fx:id="search" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#Seachrecord" prefHeight="26.0" prefWidth="157.0" promptText="Filter" GridPane.columnIndex="9" GridPane.rowIndex="8" />
+     <TextField fx:id="filterInput" maxWidth="-Infinity" prefWidth="100.0" promptText="Complete" translateX="200.0" GridPane.columnIndex="9" GridPane.rowIndex="27" />
     <columnConstraints>
-        <ColumnConstraints />
-        <ColumnConstraints />
-        <ColumnConstraints />
-        <ColumnConstraints />
-        <ColumnConstraints />
-        <ColumnConstraints />
-        <ColumnConstraints />
-        <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints maxWidth="93.6" minWidth="93.0" prefWidth="93.6" />
+      <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+      <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+   </columnConstraints>
+   <rowConstraints>
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
-    </rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="25.599999999999994" minHeight="25.599999999999994" prefHeight="25.599999999999994" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="202.39999999999998" minHeight="202.39999999999998" prefHeight="202.39999999999998" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+
 </GridPane>

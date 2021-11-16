@@ -9,8 +9,8 @@ import javafx.beans.property.SimpleStringProperty;
 //creates new to do list
 public class TodoList {
 
- /*   private final SimpleStringProperty Name= new SimpleStringProperty("");
-       private todoList<Task> listTasks = new ArrayList<>();
+    private final SimpleStringProperty Name= new SimpleStringProperty("");
+
 
     public TodoList() {
 
@@ -33,7 +33,7 @@ public class TodoList {
     }
 
 
-    public String OutputS(List<ToDoList> Lists) {
+ //   public String OutputS(List<ToDoList> Lists) {
         //StringBuilder Output
 
         //for(num of toDoLists)
@@ -44,9 +44,9 @@ public class TodoList {
 
         //return string
 
-    }
+   // }
 
 
-  */
+
 
 }

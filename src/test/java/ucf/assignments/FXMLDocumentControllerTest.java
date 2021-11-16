@@ -1,119 +1,116 @@
 package ucf.assignments;
 
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TableView;
 import org.junit.jupiter.api.Test;
+
+import javax.swing.*;
+import java.io.*;
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FXMLDocumentControllerTest {
 
-    @org.junit.jupiter.api.Test
+
+    @Test
+    void removeItem() {
+
+        //tests to see if item is removed
+
+        ObservableList<Item> observableList= FXCollections.observableArrayList(
+                new Item()
+        );
+
+        observableList.remove(new Item("cookies",
+                "Pillsburry",
+                "2021-08-09",
+                "c"
+        ));
+
+        assertNotNull(observableList);
+
+    }
+
+
+    @Test
+    void testAddItem() {
+
+        //checks item is added to list
+        ObservableList<Item> observableList= FXCollections.observableArrayList(
+                new Item()
+        );
+
+        observableList.add(new Item("cookies",
+                "Pillsburry",
+                "2021-08-09",
+                "c"
+        ));
+
+        assertNotNull(observableList);
+
+    }
+
+
+    @Test
+    public void clearbutton() {
+
+        //checks if list is cleared
+        ObservableList<Item> observableList= FXCollections.observableArrayList(
+                new Item("cookies","Pillsburry","2021-08-09","C")
+        );
+
+        if (observableList.isEmpty()) {
+            assertNull(observableList);
+
+        } else {
+            System.out.println("Not empty");
+        }
+
+    }
+
+    @Test
     void handleAboutAction() {
 
-        //ensure when about button is clicked, it pops up txt file
+        //checks if fxml file for help opens
+        Item item = null;
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ucf.assignments/Help.fxml"));
+
+
+        assertNotNull(fxmlLoader);
 
     }
 
-    @org.junit.jupiter.api.Test
-    void handleKeyInput() {
-        //ensure each button in menu bar selected is working
-    }
 
-    @org.junit.jupiter.api.Test
-    void handlenewfileButtonAction() {
 
-        //ensure new file is created and put into the listview
+    @Test
+    public void saveAll() throws IOException {
 
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleNewF() {
-
-        //ensure new file when menu bar is clicked is created and put into list view
-        //Compare list title created to expected title
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleDeleteL() {
-        //check if list is deleted from listview
-        //Check array of list to confirm it does not have list title
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleSaveas() {
-        //change name of list and save txt file
-        //compare saved txt file to expected txt file
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleNewI() {
-
-        //create new item with title, description and due date
-        //compare new item to expected item
+        //sees if file is saved to external storage
+        File file = new File("user.home");
+        BufferedWriter outwriter= new BufferedWriter(new FileWriter(file));
+        assertNotNull(outwriter);
 
     }
 
-    @org.junit.jupiter.api.Test
-    void handleDeleteI() {
 
-        //create new item
-        //use delete function to delete item
-        // compare listview of tems before and after when item is deleted
+
+    @Test
+    public void handleExistingEL() throws IOException {
+
+        //checks to see if list is opened and exists
+
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/java/ucf/assignments/ex.txt"));
+
+        String line = reader.readLine();
+        assertNotNull(line);
+
     }
 
-
-    @org.junit.jupiter.api.Test
-    void handleEditI() {
-
-        //edit selected item
-        //change date or description
-        //compare old item to edited item
-        //compare expected output for the item
-    }
-
-    @org.junit.jupiter.api.Test
-    void handlecheckbox() {
-        //check some items on to do list
-        //compare shown data to expected
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleExistingL() {
-
-        //call previous list saved
-        //compare listview object to expected listview
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleSave() {
-
-        //compare current name of list txt saved with expected list txt saved
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleExit() {
-
-        //test button quits application
-    }
-
-    @org.junit.jupiter.api.Test
-    void showCompletedTasks() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleSaveAll() {
-        //save all lists
-        //check if they are formmatted and named correctly
-        //compare expected lists to be saved with the ones saved
-    }
-
-    @org.junit.jupiter.api.Test
-    void handleExistingEL() {
-        //call previous list saved
-        //compare listview object to expected listview
-    }
-
-    @org.junit.jupiter.api.Test
-    void showLists() {
-
-        //compare current listview to the listview when list is filtered by search bar
-    }
 }

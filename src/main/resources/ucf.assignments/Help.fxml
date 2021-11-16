@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="-86.0" layoutY="-32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to use my App:" translateX="100.0" translateY="90.0" wrappingWidth="342.13671875">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <TextArea layoutX="27.0" layoutY="73.0" prefHeight="294.0" prefWidth="558.0" text="1. Add Item by filling in all required fields for a to do list Item and click the &quot;Add&quot;&#10; button &#10;2. Delete an item by selecting an Item in the list and pressing the button &quot;Delete&quot; &#10;3. The clear button clears all things in the list &#10;4. Click on the menu File button to &quot;open an exsiting list&quot; and put it into the &#10;current list. The external storage is from a txt file in the program (called ex.txt).&#10;The existing list needs to be seperated by a comma for each item to properly&#10; fit in each column on the list. &#10;5. Click on the file menu and click &quot;save&quot; to save list to external drive &#10;6. You can sort the list by due date by clicking the Due Date Column &#10;7. You can edit any item in the To Do list by clicking on the field you want &#10;to edit&#10;8. If an item is complete, write &quot;C&quot; next to it or &quot;I&quot; for Incomplete&#10;9.  The filter search on the top can filter completed Items from Incomplete&#10; Items by typing &quot;C&quot; or &quot;I&quot;&#10;10. On the menu bar, the &quot;Exit&quot; button exits the program. &#10;&#10;">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
